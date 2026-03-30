@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>受講生限定イベント KPI</title>
+    <link rel="stylesheet" href="./css/dashboard.css" />
+  </head>
+  <body>
+    <div class="wrap" id="app">
+      <header>
+        <h1 id="title">読み込み中…</h1>
+        <p class="meta" id="meta"></p>
+      </header>
+      <section>
+        <h2 class="section-title">目標 vs 実績（KPI）</h2>
+        <div class="grid" id="cards"></div>
+      </section>
+      <section>
+        <h2 class="section-title">ファネル（対象者比）</h2>
+        <div class="funnel" id="funnel"></div>
+      </section>
+      <p class="note" id="note"></p>
+    </div>
+    <script src="./js/config.js"></script>
+    <script src="./js/dashboard.js"></script>
+    <script>
+      initDashboard();
+    </script>
+  </body>
+</html>

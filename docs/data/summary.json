@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-03-30T12:27:12Z",
+  "sourceSheetId": "1_R6jiYu1qJSFLuo_Cmt4aKjbD2iu8AYX2JE_KAE_3z0",
+  "totalRows": 212,
+  "lineConfirmed": {
+    "済": 0,
+    "未": 212
+  },
+  "tagDone": {
+    "済": 0,
+    "未": 212
+  },
+  "outreachDateFilled": 0,
+  "replyStatus": {
+    "未": 212
+  },
+  "cvStatus": {
+    "未": 212
+  }
+}

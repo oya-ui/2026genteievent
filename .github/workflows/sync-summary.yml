@@ -1,0 +1,33 @@
+name: Sync KPI summary from Google Sheet
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *" # 毎日 11:00 JST 前後 (UTC 02:00)
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build summary.json (no PII)
+        env:
+          SHEET_ID: 1_R6jiYu1qJSFLuo_Cmt4aKjbD2iu8AYX2JE_KAE_3z0
+          SHEET_GID: "0"
+        run: python3 scripts/build_summary.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/summary.json
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            git commit -m "chore: update KPI summary from sheet [skip ci]"
+            git push
+          fi
