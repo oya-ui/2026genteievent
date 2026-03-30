@@ -1,6 +1,6 @@
 /**
  * 目標値（KPI）— 運用に合わせて編集してください。
- * GitHub Pages デプロイ後もこのファイルを更新してコミットすれば反映されます。
+ * Netlify / GitHub Pages いずれでも、このファイルを更新してコミット・デプロイすれば反映されます。
  */
 window.DASHBOARD_CONFIG = {
   projectName: '受講生限定イベント（28卒）',

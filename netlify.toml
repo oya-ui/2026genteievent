@@ -1,0 +1,35 @@
+# Netlify: 静的サイト（ビルドなし）— 公開ディレクトリは docs/
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  publish = "docs"
+  # ビルドコマンドなし（静的ファイルのみ）。ビルドを足す場合は command を追加
+
+[build.environment]
+  # 将来ビルドツールを足すとき用（現状は未使用）
+  NODE_VERSION = "20"
+
+# セキュリティ・キャッシュ（Netlify が配信時に付与）
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/data/summary.json"
+  [headers.values]
+    # KPI は頻繁に更新される想定で短めキャッシュ
+    Cache-Control = "public, max-age=120, must-revalidate"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, immutable"

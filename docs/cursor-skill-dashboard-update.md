@@ -1,6 +1,6 @@
 # Cursor スキル案: ダッシュボード（KPI）更新
 
-このリポジトリでは、**スプレッドシートの実績**は `scripts/build_summary.py` 経由で **`docs/data/summary.json`** にだけ反映します。**目標値**は **`docs/js/config.js`** です。
+このリポジトリでは、**スプレッドシートの実績**は `scripts/build_summary.py` 経由で **`docs/data/summary.json`** にだけ反映します。**目標値**は **`docs/js/config.js`** です。サイト公開は Netlify（`netlify.toml` の `publish = "docs"`）または GitHub Pages の `/docs` を想定しています。
 
 ## スキルに含めるとよい指示
 

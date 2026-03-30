@@ -1,6 +1,6 @@
 # 2026 gentei event — KPI ダッシュボード
 
-受講生限定イベント（28卒）の [追跡スプレッドシート](https://docs.google.com/spreadsheets/d/1_R6jiYu1qJSFLuo_Cmt4aKjbD2iu8AYX2JE_KAE_3z0/edit) を集計し、**個人情報を含まない** `docs/data/summary.json` だけをリポジトリに載せ、GitHub Pages でダッシュボードを表示します。
+受講生限定イベント（28卒）の [追跡スプレッドシート](https://docs.google.com/spreadsheets/d/1_R6jiYu1qJSFLuo_Cmt4aKjbD2iu8AYX2JE_KAE_3z0/edit) を集計し、**個人情報を含まない** `docs/data/summary.json` だけをリポジトリに載せ、**Netlify**（推奨）または **GitHub Pages** でダッシュボードを表示します。
 
 ## 表示内容
 
@@ -27,7 +27,19 @@ git add docs/data/summary.json && git commit -m "chore: update summary" && git p
 
 スプレッドシートは **「リンクを知っている全員が閲覧可」** など、CSV エクスポートが取得できる必要があります。
 
-## GitHub Pages
+## Netlify（推奨）
+
+リポジトリルートの `netlify.toml` で **公開ディレクトリは `docs`**、ビルドコマンドなしです。
+
+1. [Netlify](https://www.netlify.com/) にログイン → **Add new site → Import an existing project**
+2. GitHub と連携し、このリポジトリを選択
+3. **Build command**: 空のまま（または UI が必須なら `echo ok` など no-op）
+4. **Publish directory**: `docs`（`netlify.toml` があれば自動検出されることが多い）
+5. **Deploy site** — カスタムドメインを割り当てれば、`./data/summary.json` など相対パスはそのまま動作します
+
+セキュリティヘッダーと `summary.json` / `js` / `css` のキャッシュは `netlify.toml` の `[[headers]]` で設定済みです。
+
+## GitHub Pages（代替）
 
 1. リポジトリ **Settings → Pages**
 2. **Build and deployment**: **Deploy from a branch**
